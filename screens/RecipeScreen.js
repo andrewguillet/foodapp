@@ -9,12 +9,12 @@ import {
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-import { addBookmark, removeBookmark } from "../reducers/bookmarks";
+import { addFavorite, removeFavorite } from "../reducers/favorites";
 
 export default function RecipesScreen({ route, navigation }) {
   const { recipe } = route.params;
   const [portion, setportion] = useState(1);
-  const bookmarks = useSelector((state) => state.bookmarks.value);
+  const favorites = useSelector((state) => state.favorites.value);
   const dispatch = useDispatch();
 
   if (portion < 1) {
@@ -22,13 +22,13 @@ export default function RecipesScreen({ route, navigation }) {
   }
   console.log(recipe.id);
 
-  const isBookmarked = bookmarks.some((bookmark) => bookmark.id === recipe.id);
+  const isBookmarked = favorites.some((bookmark) => bookmark.id === recipe.id);
 
   function handleBookMark() {
     if (isBookmarked) {
-      dispatch(removeBookmark(recipe));
+      dispatch(removeFavorite(recipe));
     } else {
-      dispatch(addBookmark(recipe));
+      dispatch(addFavorite(recipe));
     }
   }
 

@@ -10,8 +10,8 @@ import {
 import { useSelector } from "react-redux";
 
 export default function MyRecipesScreen({ navigation }) {
-  const bookmarks = useSelector((state) => state.bookmarks.value || []);
-  console.log(bookmarks);
+  const favorites = useSelector((state) => state.favorites.value || []);
+  console.log(favorites);
   return (
     <>
       <ScrollView style={{ flex: 1 }}>
@@ -19,7 +19,7 @@ export default function MyRecipesScreen({ navigation }) {
           <Text style={styles.title}>The best one...</Text>
 
           <View style={styles.recipeContainer}>
-            {bookmarks.map((recipe) => (
+            {favorites.map((recipe) => (
               <TouchableOpacity
                 key={recipe.id}
                 style={[styles.recipes, { backgroundColor: recipe.color }]}

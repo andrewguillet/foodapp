@@ -10,10 +10,10 @@ import SearchScreen from "./screens/SearchScreen";
 import MyRecipesScreen from "./screens/MyRecipesScreen";
 // import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
-import bookmarks from "./reducers/bookmarks";
+import favorites from "./reducers/favorites";
 
 const store = configureStore({
-  reducer: { bookmarks },
+  reducer: { favorites },
 });
 
 const Stack = createNativeStackNavigator();

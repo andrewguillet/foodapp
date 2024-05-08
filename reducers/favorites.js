@@ -4,14 +4,14 @@ const initialState = {
   value: [],
 };
 
-export const bookmarksSlice = createSlice({
-  name: "bookmarks",
+export const favoritesSlice = createSlice({
+  name: "favorites",
   initialState,
   reducers: {
-    addBookmark: (state, action) => {
+    addFavorite: (state, action) => {
       state.value.push(action.payload);
     },
-    removeBookmark: (state, action) => {
+    removeFavorite: (state, action) => {
       state.value = state.value.filter(
         (bookmark) => bookmark.id !== action.payload.id
       );
@@ -19,5 +19,5 @@ export const bookmarksSlice = createSlice({
   },
 });
 
-export const { addBookmark, removeBookmark } = bookmarksSlice.actions;
-export default bookmarksSlice.reducer;
+export const { addFavorite, removeFavorite } = favoritesSlice.actions;
+export default favoritesSlice.reducer;
